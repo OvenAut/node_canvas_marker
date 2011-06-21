@@ -4,7 +4,8 @@
  */
 
 var express = require('express'),
-    fs = require('fs');
+    fs = require('fs'),
+    util = require('util');
 
 var app = module.exports = express.createServer();
 
@@ -59,7 +60,7 @@ app.get(/^\/images\/[0-9a-f]{3}marker.png/,function(req,res) {
 	function sendCanvas(canvasMarker) {
 		res.writeHead(200, { 'Content-Type': 'image/png','Cache-Control':'public, max-age=3600' });
 	  res.end(canvasMarker);
-	  console.log("send file " + color);
+	  util.log("send file " + color);
   }
 });
 
