@@ -57,7 +57,7 @@ app.get(/^\/images\/[0-9a-f]{3}marker.png/,function(req,res) {
 	});
 	// console.log(colorArray[0]);
 	function sendCanvas(canvasMarker) {
-		res.writeHead(200, { 'Content-Type': 'image/png','Cache-Control':'public, max-age=86400' });
+		res.writeHead(200, { 'Content-Type': 'image/png','Cache-Control':'public, max-age=3600' });
 	  res.end(canvasMarker);
 	  console.log("send file " + color);
   }
@@ -66,6 +66,6 @@ app.get(/^\/images\/[0-9a-f]{3}marker.png/,function(req,res) {
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(3000);
+  app.listen(4000);
   console.log("Express server listening on port %d", app.address().port);
 }
